@@ -11,6 +11,7 @@ import hashlib
 import asyncio
 import sys
 
+#handy code-snippet to manage file directories no matter which directory you run macagotchi in
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     os.chdir(sys._MEIPASS)
 pygame.init()
@@ -47,6 +48,7 @@ with open('assets/longestStreak.txt','r') as f:
 with open('assets/stats.txt','r') as f:
     file = f.read()
     nameText = file.split('\n')[0]
+#Streak manager
 with open('assets/loyalty.txt','r') as f:
     file = f.read()
     values = file.split('\n')
