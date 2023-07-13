@@ -4,7 +4,7 @@ Macagotchi is a virtual pet application that runs on a computer (Windows codebas
 
 As pwnagotchi’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
 
-If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for[ macOS and PC.](https://spacemonkeyalfa.itch.io/macagotchi)
+If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for[ macOS and windows](https://spacemonkeyalfa.itch.io/macagotchi).
 
 A Raspberry Pi version is currently in development and I’ll be releasing the code and hardware specs very soon.
 
@@ -31,8 +31,13 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
 
 
 ## Dependencies:
-- ### [Python 3.x](https://www.python.org/)
-- ### [pygame library](https://www.pygame.org/news)
+[Python 3.x](https://www.python.org/)<br>
+Macagotchi is written in python, so you'll need to have it.<br><br>
+[pygame library](https://www.pygame.org/news)<br>
+Macagotchi uses pygame to display an application window. `pip install pygame`<br><br>
+[pyinstaller](https://pyinstaller.org/en/stable/)<br>
+Not necessary, but if you want to package the source code into an exe, pyinstaller is very helpful. `pip install pyinstaller`
+
 
 ## External Files:
 - **logo.png:** Represents the logo image used for the program.
