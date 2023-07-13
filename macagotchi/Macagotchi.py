@@ -1,6 +1,6 @@
 #License:
 #MIT License
-#Copyright Andrew Varela 2023
+#Copyright SpaceMonkeyAlfa 2023
 import time
 import subprocess
 import datetime
@@ -309,7 +309,7 @@ while carryOn:
     commentaryText = font.render(commentary, False, BLACK)
     name = font.render(str(nameText), False, (0, 0, 0))
     #ssidText = font.render(str(ssids-1), False, (0, 0, 0))
-    ssidText = font.render(str(ssids), False, (0, 0, 0))
+    ssidText = font.render(str(ssids-1), False, (0, 0, 0))
     countText = font.render(str(total+addup-1), False, (0, 0, 0))
     if longestStreak < 10:
         screen.blit(low, (25,10))
