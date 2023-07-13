@@ -1,7 +1,7 @@
 # Macagotchi  (For macOS)
 
 Description:
-Macagotchi is a virtual pet application that runs on a computer (PC codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent pwnagotchi project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
+Macagotchi is a virtual pet application that runs on a computer (Windows codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent pwnagotchi project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
 
 As pwnagotchi’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
 
@@ -32,8 +32,8 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
 
 
 ## Dependencies:
-- ### Python 3.x
-- ### pygame library
+- ### [Python 3.x](https://www.python.org/)
+- ### [pygame library](https://www.pygame.org/news)
 
 ## External Files:
 - **logo.png:** Represents the logo image used for the program.
@@ -46,9 +46,8 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
 
 
 ## Build:
-If you want to skip the manual build, you can download the finished installers for free at itch.io: here for macOS and here for PC.  Raspeberry Pi coming soon!
+If you want to skip the manual build, you can download the finished installers for free at itch.io: here for [macOS and Windows](https://spacemonkeyalfa.itch.io/macagotchi).  Raspeberry Pi coming soon!
 
 
-
-License
-
+## License:
+[MIT LICENSE](https://github.com/SpaceMonkeyAlfa/macagotchi-macos/blob/main/LICENSE)
