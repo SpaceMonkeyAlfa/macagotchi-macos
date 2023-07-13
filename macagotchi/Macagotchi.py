@@ -1,6 +1,3 @@
-#License:
-#MIT License
-#Copyright Andrew Varela 2023
 import time
 import subprocess
 import datetime
