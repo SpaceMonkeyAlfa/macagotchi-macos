@@ -200,7 +200,8 @@ while carryOn:
         face = normal
   
     
-        
+    if scanTimes > 2:
+        scanDelay = 16200
     if timer == 1800+scanDelay:
         displayResults = False
         if longestStreak < streak:
