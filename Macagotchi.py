@@ -1,6 +1,3 @@
-#License:
-#MIT License
-#Copyright SpaceMonkeyAlfa 2023
 import time
 import subprocess
 import datetime
@@ -10,10 +7,11 @@ import random
 import hashlib
 import asyncio
 import sys
+import os
 
-#handy code-snippet to manage file directories no matter which directory you run macagotchi in
-if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
-    os.chdir(sys._MEIPASS)
+
+#If packaging, use os.chdir("Applications/macagotchi/assets") instead
+os.chdir(str(sys.path[0])+"/assets")
 pygame.init()
 #Define Colours
 BLACK = (0,0,0)
@@ -25,7 +23,7 @@ RED = (255,0,0)
 width = 350
 height = 125
 size = (width, height)
-img = pygame.transform.scale(pygame.image.load('assets/logo.png'),(160,100))
+img = pygame.transform.scale(pygame.image.load('logo.ico'),(160,100))
 pygame.display.set_icon(img)
 screen = pygame.display.set_mode(size)
 addup = 0
@@ -38,18 +36,18 @@ pygame.display.set_caption("Macagotchi")
 typing = False
 displayResults = False
 scanDelay = 0
-with open('assets/address.txt','r') as f:
+wardriving = False
+with open('address.txt','r') as f:
         file = f.read()
         values = file.split('\n')
         ssids = len(values)
-with open('assets/longestStreak.txt','r') as f:
+with open('longestStreak.txt','r') as f:
     file = f.read()
     longestStreak = int(file.split('\n')[0])
-with open('assets/stats.txt','r') as f:
+with open('stats.txt','r') as f:
     file = f.read()
     nameText = file.split('\n')[0]
-#Streak manager
-with open('assets/loyalty.txt','r') as f:
+with open('loyalty.txt','r') as f:
     file = f.read()
     values = file.split('\n')
     for d in values:
@@ -61,7 +59,7 @@ with open('assets/loyalty.txt','r') as f:
        with open('loyalty.txt','w') as f:
          f.write("")
          streak = 0
-with open('assets/totalLog.txt','r') as f:
+with open('totalLog.txt','r') as f:
     file = f.read()
     file = file.split('\n')
     
@@ -93,10 +91,12 @@ def scan(count):
     out, err = process.communicate()
     process.wait()
     networks = out.decode().split('\n')
-
     networks.pop(0)
+    uniques = []
     netwrks = []
+    returnList = []
     for n in networks:
+        returnList = []
         count = 0
         n = n.split('--')
         n = str(n[0]).split()
@@ -111,45 +111,47 @@ def scan(count):
 
         networks = netwrks
     for n in networks:
-        with open('assets/address.txt','r') as f:
+        with open('address.txt','r') as f:
             file = f.read()
             values = file.split('\n')
             ssids = len(values)   
         if ezhash(n) not in values:
-            with open('assets/address.txt','a') as f:
+            with open('address.txt','a') as f:
                 f.write('\n'+str(ezhash(n)))
                 count += 1
-                if n != "":
-                    uniques.append(n)
+                uniques.append(n)
+                print(uniques)
                 print(n)
             
-        with open('assets/totalLog.txt','a') as f:
+        with open('totalLog.txt','a') as f:
                 f.write('\n'+str(ezhash(n)))
                 f.write(','+str(datetime.date.today()))
-    return(count)
+    returnList.append(count)
+    returnList.append(uniques)
+    return(returnList)
 
 
 screen.fill(WHITE)
 pygame.display.flip()
 carryOn = True
-timer = 1400
+timer = 16200
 clock = pygame.time.Clock()
 count = 0
-happy = pygame.transform.scale(pygame.image.load('assets/awake.jpg'),(150,90))
-scanning1 = pygame.transform.scale(pygame.image.load('assets/scanning1.jpg'),(150,90))
-scanning2 = pygame.transform.scale(pygame.image.load('assets/scanning2.jpg'),(150,90))
-scanning3 = pygame.transform.scale(pygame.image.load('assets/scanning3.jpg'),(150,90))
-friendly = pygame.transform.scale(pygame.image.load('assets/friendly.jpg'),(150,90))
-normal = pygame.transform.scale(pygame.image.load('assets/happy.jpg'),(150,90))
-bored = pygame.transform.scale(pygame.image.load('assets/bored.jpg'),(150,90))
-lonely = pygame.transform.scale(pygame.image.load('assets/lonely.jpg'),(150,90))
-blink = pygame.transform.scale(pygame.image.load('assets/blink.jpg'),(150,90))
-low = pygame.transform.scale(pygame.image.load('assets/0-9.jpg'),(300,100))
-medium = pygame.transform.scale(pygame.image.load('assets/10-29.jpg'),(300,100))
-high = pygame.transform.scale(pygame.image.load('assets/30-99.jpg'),(300,100))
-godtier = pygame.transform.scale(pygame.image.load('assets/100+.jpg'),(300,100))
-asleep = pygame.transform.scale(pygame.image.load('assets/asleep.jpg'),(150,90))
-awakening = pygame.transform.scale(pygame.image.load('assets/awakening.jpg'),(150,90))
+happy = pygame.transform.scale(pygame.image.load('awake.jpg'),(150,90))
+scanning1 = pygame.transform.scale(pygame.image.load('scanning1.jpg'),(150,90))
+scanning2 = pygame.transform.scale(pygame.image.load('scanning2.jpg'),(150,90))
+scanning3 = pygame.transform.scale(pygame.image.load('scanning3.jpg'),(150,90))
+friendly = pygame.transform.scale(pygame.image.load('friendly.jpg'),(150,90))
+normal = pygame.transform.scale(pygame.image.load('happy.jpg'),(150,90))
+bored = pygame.transform.scale(pygame.image.load('bored.jpg'),(150,90))
+lonely = pygame.transform.scale(pygame.image.load('lonely.jpg'),(150,90))
+blink = pygame.transform.scale(pygame.image.load('blink.jpg'),(150,90))
+low = pygame.transform.scale(pygame.image.load('0-9.jpg'),(300,100))
+medium = pygame.transform.scale(pygame.image.load('10-29.jpg'),(300,100))
+high = pygame.transform.scale(pygame.image.load('30-99.jpg'),(300,100))
+godtier = pygame.transform.scale(pygame.image.load('100+.jpg'),(300,100))
+asleep = pygame.transform.scale(pygame.image.load('asleep.jpg'),(150,90))
+awakening = pygame.transform.scale(pygame.image.load('awakening.jpg'),(150,90))
 face = asleep
 nextface = normal
 oldface = normal
@@ -168,13 +170,14 @@ while carryOn:
         if event.type == pygame.QUIT:
             carryOn = False
         if event.type == pygame.KEYDOWN:
-  
+            if event.key == pygame.K_w:
+                wardriving = not wardriving
             # Check for backspace
             if event.key == pygame.K_F2:
                 typing = True
             if event.key == pygame.K_RETURN:
                 typing = False
-                with open('assets/stats.txt','w') as f:
+                with open('stats.txt','w') as f:
                     f.write(nameText)
 
                 
@@ -189,9 +192,7 @@ while carryOn:
     if actualTime == 60:
         face = awakening
         sleepTime = sleepTime
-        if sleepTime == 1:
-            commentary = f"I've been asleep for {sleepTime} day."
-        elif sleepTime > 1:
+        if sleepTime > 1:
             commentary = f"I've been asleep for {sleepTime} days."
         else:
             commentary = "Hello hooman!"
@@ -200,58 +201,67 @@ while carryOn:
         face = normal
   
     
-    if scanTimes > 2:
-        scanDelay = 16200
-    if timer == 1800+scanDelay:
+
+    if wardriving and scanTimes > 0:
+        scanDelay = -16200
+    else:
+        ScanDelay = 0
+    print(str(18000 - scanDelay - timer))
+    if timer == 18000 + scanDelay:
         displayResults = False
         if longestStreak < streak:
-            with open('assets/longestStreak.txt','w') as f:
+            with open('longestStreak.txt','w') as f:
                 f.write(str(streak))
         rng = random.randint(1,4)
         commentary = "Scanning..."
         print("Scanning...")
         scanning = True
-        uniques = []
-        lastFinds = scan(0)
+        returnedList = scan(0)
+        lastFinds = returnedList[0]
+        uniques = returnedList[1]
+        
         face = scanning1
         finds += lastFinds
-    if timer in range(1845+scanDelay,1850+scanDelay):
+        print(uniques)
+    elif timer in range(18045 + scanDelay,18050+ scanDelay):
         face = scanning2
-    elif timer in range(1890+scanDelay,1895+scanDelay):
+    elif timer in range(18090 + scanDelay,18095 + scanDelay):
         face = scanning3
-    elif timer in range(1935+scanDelay,1940+scanDelay):
+    elif timer in range(18135 + scanDelay,18140 + scanDelay):
         face = scanning2
-    elif timer in range(1980+scanDelay,1985+scanDelay):
+    elif timer in range(18180 + scanDelay,18185 + scanDelay):
         face = scanning1
-    elif timer in range(2025+scanDelay,2030+scanDelay):
+    elif timer in range(18225 + scanDelay,18230 + scanDelay):
         face = scanning2
-    elif timer in range(2070+scanDelay,2075+scanDelay):
+    elif timer in range(18270 + scanDelay,18275 + scanDelay):
         face = scanning3
-    elif timer in range(2115+scanDelay,2120+scanDelay):
+    elif timer in range(18315 + scanDelay,18320 + scanDelay):
         face = scanning2
-    elif timer >= 2205:
+    elif timer >= 18360 + scanDelay:
         scanning = False
         timer = 0
+        print("END SCAN RESET TIMER")
         face = nextface
         displayResults = True
         networksID = 0
-        with open('assets/address.txt','r') as f:
+        with open('address.txt','r') as f:
             file = f.read()
             values = file.split('\n')
             ssids = len(values)
         scanTimes += 1
+        
         if lastFinds < 1 and not scanning:
-            commentary = "Found nothing."
-
-
+            commentary = f"Zero. But found {finds} already."
+    
     if lastFinds > 0 and displayResults:
         timer = 0
+        print("FOUND {x} DISPLAY RESET TIMER.")
         commentary = f"Found {uniques[networksID]}!"
         displayTime += 1
         if displayTime > 60 and networksID < len(uniques)-1:
             networksID += 1
             displayTime = 0
-        elif displayTime > 60:
+        elif displayTime > 60 and networksID >= len(uniques)-1:
             if lastFinds > 1:
                 commentary = f"Found {lastFinds} new ones!"
             elif lastFinds == 1:
@@ -262,11 +272,11 @@ while carryOn:
     if finds > 4 and not scanning:
         face = friendly
         nextface = friendly
-        with open('assets/loyalty.txt','r') as f:
+        with open('loyalty.txt','r') as f:
             file = f.read()
             values = file.split('\n')
         if str(datetime.date.today()) not in values:
-            with open('assets/loyalty.txt','a') as f:
+            with open('loyalty.txt','a') as f:
                 f.write('\n'+str(datetime.date.today()))
                 streak += 1
     elif finds > 0 and not scanning:
@@ -280,9 +290,9 @@ while carryOn:
         if rng == 1:
             commentary = "Hungry"
         elif rng == 2:
-            commentary = "Feed.. Me"
+            commentary = "Feed... Me"
         elif rng == 3:
-            commentary = "Food.."
+            commentary = "Food..."
         elif rng == 4:
             commentary = "Can we go for a walk?"
 
@@ -296,7 +306,7 @@ while carryOn:
     if blinkTime > 195 and not scanning and face != lonely:
         face = oldface
         blinkTime = 0
-    with open('assets/totalLog.txt','r') as f:
+    with open('totalLog.txt','r') as f:
         file = f.read()
         total = len(file.split('\n'))
     if len(str(streak)) > 1:
@@ -308,12 +318,14 @@ while carryOn:
 
     message = str(streak)
     font = pygame.font.SysFont('Menlo', 20)
+    wardriveFont = pygame.font.SysFont('Menlo', 20)
     text_surface = font.render(message, False, textColour)
     commentaryText = font.render(commentary, False, BLACK)
     name = font.render(str(nameText), False, (0, 0, 0))
     #ssidText = font.render(str(ssids-1), False, (0, 0, 0))
     ssidText = font.render(str(ssids-1), False, (0, 0, 0))
-    countText = font.render(str(total+addup-1), False, (0, 0, 0))
+    countText = font.render(str(total-1), False, (0, 0, 0))
+    wardrivemode = wardriveFont.render(("w"), False, (BLACK))
     if longestStreak < 10:
         screen.blit(low, (25,10))
     elif longestStreak < 30:
@@ -327,8 +339,10 @@ while carryOn:
     screen.blit(commentaryText,(20, 100) )
    
    
-    screen.blit(ssidText, (230,40))
-    screen.blit(countText, (230,60))
+    screen.blit(ssidText, (230,38))
+    screen.blit(countText, (230,58))
+    if wardriving:
+        screen.blit(wardrivemode, (233,73))
     screen.blit(text_surface, (176-adjustmentX,50))
 
     screen.blit(name, (10, 10))
