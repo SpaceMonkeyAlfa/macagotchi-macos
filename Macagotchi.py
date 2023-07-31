@@ -9,7 +9,6 @@ import asyncio
 import sys
 import os
 
-NextScanDelay = 0
 
 #If packaging, use os.chdir("Applications/macagotchi/assets") instead
 os.chdir(str(sys.path[0])+"/assets")
