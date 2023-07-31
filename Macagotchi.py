@@ -23,7 +23,7 @@ RED = (255,0,0)
 width = 350
 height = 125
 size = (width, height)
-img = pygame.transform.scale(pygame.image.load('logo.png'),(160,100))
+img = pygame.transform.scale(pygame.image.load('logo.ico'),(160,100))
 pygame.display.set_icon(img)
 screen = pygame.display.set_mode(size)
 addup = 0
