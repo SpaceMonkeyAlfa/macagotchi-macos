@@ -1,10 +1,10 @@
 # Macagotchi  (For macOS)
 
-Macagotchi is a virtual pet application that runs on a computer (Windows codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent pwnagotchi project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
+Macagotchi is a virtual pet application that runs on a computer ([Windows](https://github.com/SpaceMonkeyAlfa/macagotchi-windows) codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent pwnagotchi project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
 
 As pwnagotchi’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
 
-If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for [macOS and Windows]([http://macagotchi.com](http://macagotchi.com/)).
+If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for [macOS and Windows](http://macagotchi.com/).
 
 A Raspberry Pi version is currently in development and I’ll be releasing the code and hardware specs very soon.
 
@@ -61,4 +61,4 @@ Download and extract the .zip or clone the repo and run Macagotchi.py.
 
 
 ## License:
-[MIT LICENSE](https://github.com/SpaceMonkeyAlfa/macagotchi-macos/blob/main/LICENSE)
+[Mozzila 2.0](https://github.com/SpaceMonkeyAlfa/macagotchi-macos/blob/main/LICENSE)
