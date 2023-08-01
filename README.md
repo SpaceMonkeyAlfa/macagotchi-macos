@@ -19,7 +19,7 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
 
 3. ### Wi-Fi Network Scanning:
    - The program scans for nearby Wi-Fi networks using the built-in airport utility on macOS.
-   - It retrieves the list of network SSIDs 
+   - It retrieves the list of network SSIDs .
    - Scanned networks are hashed and then stored in a file for future reference.
 
 4. ### Loyalty and Streak Tracking:
@@ -31,7 +31,7 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
 
 6. ### War Driving Mode:
    - Pressing "w" toggles between war driving and normal mode.
-   - In normal mode, the first scan will happen 30 seconds after startup, and then 5 minutes for every scan after that
+   - In normal mode, the first scan will happen 30 seconds after startup, and then 5 minutes for every scan after that.
    - In war driving mode, every scan happens 30 seconds after the last.
    - By default, war driving mode is switched off.
 ## Dependencies:
