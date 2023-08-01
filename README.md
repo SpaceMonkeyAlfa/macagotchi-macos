@@ -1,8 +1,8 @@
 # Macagotchi  (For macOS)
 
-Macagotchi is a virtual pet application that runs on a computer ([Windows](https://github.com/SpaceMonkeyAlfa/macagotchi-windows) codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent pwnagotchi project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
+Macagotchi is a virtual pet application that runs on a computer ([Windows](https://github.com/SpaceMonkeyAlfa/macagotchi-windows) codebase is here). It interacts with the user by displaying a virtual pet on the screen while it scans for nearby Wi-Fi networks, and it will become happy when it’s found new SSIDs. Your Macagotchi will also track how many days in a row you’ve been able to keep it happy, unlocking changes to the UI. While the code is very different, the idea is based on the excellent [pwnagotchi](https://github.com/evilsocket/pwnagotchi) project. The difference here is that Macagothchi doesn’t do anything sinister which might get you arrested or annoy people sitting around you. But seriously, check it out.
 
-As [pwnagotchi](https://github.com/evilsocket/pwnagotchi)’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
+As pwnagotchi’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
 
 If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for [macOS and Windows](http://macagotchi.com/).
 
@@ -29,11 +29,11 @@ A Raspberry Pi version is currently in development and I’ll be releasing the c
    - Macagotchi will become happy, friendly or hungry depending on how well you feed it.
    - Your Macagotchi will leave messages on the screen, explaining to users how it feels and giving you suggestions on how to help it feel better. For example, when a Macagotchi is hungry, the on screen message might say “Can we go on a walk?”, or when your Macagotchi is waking up, the message might read “I’ve been asleep for x days.”
 
-6. ### Wardriving Mode:
-   - Pressing "w" toggles between wardriving and normal mode.
+6. ### War Driving Mode:
+   - Pressing "w" toggles between war driving and normal mode.
    - In normal mode, the first scan will happen 30 seconds after startup, and then 5 minutes for every scan after that
-   - In wardriving mode, every scan happens 30 seconds after the last.
-   - By default, wardriving mode is switched off.
+   - In war driving mode, every scan happens 30 seconds after the last.
+   - By default, war driving mode is switched off.
 ## Dependencies:
 [Python 3.x](https://www.python.org/)<br>
 Macagotchi is written in python, so you'll need to have it.<br><br>
@@ -54,7 +54,7 @@ Not necessary, but if you want to package the source code into an exe, pyinstall
 
 
 ## Build:
-If you want to skip the manual build, you can download the finished installers for free at itch.io: here for [macOS and Windows]([macagotchi.com](http://macagotchi.com/)).  Raspeberry Pi coming soon!
+If you want to skip the manual build, you can download the finished installers for free at itch.io: here for [macOS and Windows](http://macagotchi.com/).  Raspeberry Pi coming soon!
 
 ## How to use:
 Download and extract the .zip or clone the repo and run Macagotchi.py. 
