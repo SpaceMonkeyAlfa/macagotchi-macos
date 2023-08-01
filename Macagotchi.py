@@ -10,7 +10,7 @@ import sys
 import os
 
 
-#If packaging, use os.chdir("Applications/macagotchi/assets") instead
+#If packaging, use os.chdir("/Applications/macagotchi/assets") instead
 os.chdir(str(sys.path[0])+"/assets")
 pygame.init()
 #Define Colours
@@ -66,7 +66,7 @@ with open('totalLog.txt','r') as f:
     file = file[len(file)-1]
     print(file)
     file = file.split(',')
-    if "".join(file) != "":
+    if "".join(file) != "Total Log:":
         lastopened = file[1]
         str_d1 = str(datetime.date.today())
         str_d2 = lastopened
