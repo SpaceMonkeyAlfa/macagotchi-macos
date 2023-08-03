@@ -207,7 +207,7 @@ while carryOn:
     if wardriving and scanTimes > 0:
         scanDelay = -16200
     else:
-        ScanDelay = 0
+        scanDelay = 0
     print(str(18000 - scanDelay - timer))
     if timer == 18000 + scanDelay:
         displayResults = False
