@@ -172,6 +172,8 @@ while carryOn:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w:
                 wardriving = not wardriving
+                if scanTimes > 0:
+                        timer = 0
             # Check for backspace
             if event.key == pygame.K_F2:
                 typing = True
