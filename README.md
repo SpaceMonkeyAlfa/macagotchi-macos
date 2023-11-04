@@ -4,7 +4,7 @@ Macagotchi is a virtual pet application that runs on a computer ([Windows](https
 
 As pwnagotchi’s less sinister cousin it only collects SSIDs to keep score, which it keeps locally in a hashed log. It doesn’t export data, and doesn’t contain any marketing or tracking code. By design, if you want to share how many SSIDs you’ve collected and/or how happy your Macagotchi is, take a screenshot.
 
-If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for [MacOS and Windows](http://macagotchi.com/).
+If you’d prefer not to do a step by step install of the source code, you can download the finished installers: for [macOS and Windows](http://macagotchi.com/).
 
 A Raspberry Pi version is currently in development and I’ll be releasing the code and hardware specs very soon.
 
